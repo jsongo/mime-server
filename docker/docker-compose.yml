@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+    tornado-mime:
+        build: .
+        image: mime-tornado
+        container_name: mime-server
+        # network_mode: host
+        ports:
+            - 18080:18080
+        restart: always
+        environment:
+            - TORNADO_PORT=18080
+            - VERSION=1.0.0
+        volumes:
+            - ..:/app
+        links:
+            - mime-redis:redis-server
+
+    mime-redis:
+        image: redis
+        container_name: mime-redis
+        restart: always

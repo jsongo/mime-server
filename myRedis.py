@@ -12,7 +12,7 @@ pool = 10
 host = 'redis-server'
 port = 6379
 pwd = ''
-POOL = tornadis.ClientPool(max_size=pool, host=host, port=port, autoconnect=True, password=pwd)
+POOL = tornadis.ClientPool(max_size=pool, host=host, port=port, autoconnect=True)
 
 getRedis = POOL.connected_client
 
